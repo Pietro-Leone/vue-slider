@@ -15,7 +15,7 @@
   <div id="app">
 
     <div class="container">
-      <div class="slider-wrapper" tabindex="0">
+      <div class="slider-wrapper" @mouseover="hoverAutoPlay" @mouseout="outAutoPlay" tabindex="0">
 
         <div class="item" :class="(currentIndex === i ? 'active' : '')" v-show="(currentIndex === i)"
           v-for="(element, i) in slides">

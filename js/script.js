@@ -28,6 +28,7 @@ Vue.createApp({
         }
       ],
       currentIndex: 0,
+      autoPlay: null,
     };
   },
   methods: {
@@ -46,10 +47,14 @@ Vue.createApp({
         this.currentIndex = 0;
       }
     },
+    hoverAutoPlay() {
+      clearInterval(this.autoPlay);
+    },
+    outAutoPlay() {
+      this.autoPlay = setInterval(this.onClickNext, 3000);
+    },
   },
   mounted() {
-    setInterval(() => {
-      this.onClickNext();
-    }, 3000);
+    this.autoPlay = setInterval(this.onClickNext, 3000)
   }
 }).mount("#app");
