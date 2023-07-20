@@ -31,6 +31,9 @@ Vue.createApp({
     };
   },
   methods: {
+    onClick(i) {
+      this.currentIndex = i;
+    },
     onClickPrev() {
       this.currentIndex--;
       if (this.currentIndex < 0) {
@@ -45,6 +48,8 @@ Vue.createApp({
     },
   },
   mounted() {
-
+    setInterval(() => {
+      this.onClickNext();
+    }, 3000);
   }
 }).mount("#app");
